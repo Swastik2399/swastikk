@@ -82,3 +82,18 @@ a {
   font-family: monospace;
 
 }
+
+.falling-heart {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    z-index: 999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
