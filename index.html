@@ -13,6 +13,7 @@
     <script type="text/javascript" src="file/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="file/function.js" charset="utf-8"></script>
     <script type="text/javascript" src="file/love.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file/hearts.js" charset="utf-8"></script>
     <script>
         function playAudio() {
             var audio = document.getElementById("myAudio");
@@ -159,13 +160,11 @@
             tree.snapshot("p2", 500, 0, 610, 680);
 
             canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
         }));
 
         var textAnimate = eval(Jscex.compile("async", function () {
             $("#code").show().typewriter();
+            startHeartRain();
         }));
 	    
         var runAsync = eval(Jscex.compile("async", function () {

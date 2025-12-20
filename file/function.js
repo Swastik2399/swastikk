@@ -60,3 +60,40 @@ function timeElapse(date){
 	$("#message-box").html(text);
 
 }
+
+//heart falling animation
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('falling-heart');
+    heart.innerHTML = '❤️';
+    
+    // use random colors
+    const colors = [
+        'rgba(255, 182, 193, 0.4)', 
+        'rgba(255, 105, 180, 0.4)', 
+        'rgba(255, 20, 147, 0.4)',  
+        'rgba(255, 0, 0, 0.4)',     
+        'rgba(255, 69, 0, 0.4)',    
+        'rgba(255, 192, 203, 0.4)', 
+        'rgba(255, 160, 122, 0.4)'  
+    ];
+    
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.color = randomColor;
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '-50px';
+    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+    
+    const duration = Math.random() * 3 + 3;
+    heart.style.animationDuration = duration + 's';
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+function startHeartRain() {
+    setInterval(createHeart, 200);
+}
